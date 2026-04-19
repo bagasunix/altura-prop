@@ -50,13 +50,13 @@ export default function StickyMobileCTA() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ type: "spring", stiffness: 260, damping: 28 }}
-          className="md:hidden fixed bottom-0 left-0 right-0 z-40 safe-bottom px-4 pt-3 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/95 to-transparent"
+          className="md:hidden fixed bottom-0 left-0 right-0 z-40 safe-bottom px-4 pt-3 bg-gradient-to-t from-brand-ink via-brand-ink/95 to-transparent"
           data-testid="sticky-mobile-cta"
         >
           <button
             onClick={scrollToForm}
             data-testid="sticky-mobile-cta-btn"
-            className="w-full h-[56px] rounded-full bg-brand-emerald text-brand-ink font-semibold flex items-center justify-center gap-2 shadow-[0_8px_30px_-6px_rgba(16,185,129,0.5)]"
+            className="w-full h-[56px] rounded-full bg-brand-emerald text-white font-semibold flex items-center justify-center gap-2 shadow-[0_8px_30px_-6px_rgba(16,185,129,0.5)]"
           >
             Coba Gratis 14 Hari <ArrowRight size={18} />
           </button>

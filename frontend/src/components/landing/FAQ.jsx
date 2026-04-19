@@ -13,7 +13,7 @@ const FAQS = [
 export default function FAQ() {
   const [open, setOpen] = useState(0);
   return (
-    <section className="relative section-pad bg-[#0C0C0C] border-y border-brand-line" data-testid="faq">
+    <section className="relative section-pad bg-brand-inkSubtle border-y border-brand-line" data-testid="faq">
       <div className="mx-auto max-w-4xl px-5 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

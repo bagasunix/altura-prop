@@ -17,7 +17,7 @@ const FloatingCard = ({ children, className, delay = 0, initial, testId }) => (
     whileInView={{ opacity: 1, x: 0, y: 0 }}
     viewport={{ once: true, amount: 0.4 }}
     transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
-    className={`absolute backdrop-blur-xl bg-[#0D0D0D]/80 border border-brand-line rounded-2xl p-3 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)] ${className}`}
+    className={`absolute backdrop-blur-xl bg-brand-panel/80 border border-brand-line rounded-2xl p-3 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] dark:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)] ${className}`}
   >
     {children}
   </motion.div>
@@ -40,7 +40,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-line bg-white/[0.02] text-xs tracking-widest uppercase text-brand-mute"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-line bg-brand-panel2/60 text-xs tracking-widest uppercase text-brand-mute"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-brand-emerald animate-pulseDot" />
             The Future of Property is Automated
@@ -79,7 +79,7 @@ export default function Hero() {
             <button
               onClick={() => scrollToId("daftar")}
               data-testid="hero-primary-cta"
-              className="group inline-flex items-center justify-center gap-2 h-[52px] px-6 rounded-full bg-brand-emerald text-brand-ink font-semibold hover:brightness-110 transition shadow-[0_8px_30px_-8px_rgba(16,185,129,0.55)]"
+              className="group inline-flex items-center justify-center gap-2 h-[52px] px-6 rounded-full bg-brand-emerald text-white font-semibold hover:brightness-110 transition shadow-[0_8px_30px_-8px_rgba(16,185,129,0.55)]"
             >
               Mulai Gratis 14 Hari
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
@@ -87,7 +87,7 @@ export default function Hero() {
             <button
               onClick={() => scrollToId("cara-kerja")}
               data-testid="hero-secondary-cta"
-              className="inline-flex items-center justify-center gap-2 h-[52px] px-6 rounded-full border border-brand-line bg-white/[0.02] text-brand-text hover:bg-white/[0.05] transition"
+              className="inline-flex items-center justify-center gap-2 h-[52px] px-6 rounded-full border border-brand-line bg-brand-panel2/60 text-brand-text hover:bg-brand-panel2/80 transition"
             >
               <PlayCircle size={18} className="text-brand-gold" />
               Lihat Demo
@@ -120,7 +120,7 @@ export default function Hero() {
             onLoad={() => setImgLoaded(true)}
             className={`w-full h-full object-cover transition-opacity duration-700 ${imgLoaded ? "opacity-100" : "opacity-0"}`}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-ink via-brand-ink/20 to-transparent" />
 
           <FloatingCard
             testId="floating-lead-card"

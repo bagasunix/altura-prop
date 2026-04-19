@@ -128,7 +128,7 @@ export default function Pricing() {
                 {t.badge && (
                   <div
                     data-testid={isFeatured ? "pricing-popular-badge" : `pricing-badge-${t.id}`}
-                    className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold text-brand-ink text-[11px] font-semibold tracking-wide uppercase"
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold text-white dark:text-brand-ink text-[11px] font-semibold tracking-wide uppercase"
                   >
                     <Sparkles size={12} /> {t.badge}
                   </div>
@@ -170,8 +170,8 @@ export default function Pricing() {
                   data-testid={`pricing-cta-${t.id}`}
                   className={`mt-8 h-[48px] rounded-full font-semibold text-sm transition ${
                     isFeatured
-                      ? "bg-brand-gold text-brand-ink hover:brightness-110"
-                      : "border border-brand-line text-brand-text hover:bg-white/[0.04]"
+                      ? "bg-brand-gold text-white dark:text-brand-ink hover:brightness-110"
+                      : "border border-brand-line text-brand-text hover:bg-brand-panel2"
                   }`}
                 >
                   Coba Gratis 14 Hari

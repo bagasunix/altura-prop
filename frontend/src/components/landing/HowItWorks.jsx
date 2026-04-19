@@ -22,7 +22,7 @@ const STEPS = [
 
 export default function HowItWorks() {
   return (
-    <section id="cara-kerja" className="relative section-pad bg-[#0C0C0C] border-y border-brand-line" data-testid="how-it-works">
+    <section id="cara-kerja" className="relative section-pad bg-brand-inkSubtle border-y border-brand-line" data-testid="how-it-works">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -74,10 +74,10 @@ export default function HowItWorks() {
                   transition={{ duration: 0.6, delay: i * 0.18 }}
                   className="relative text-center md:px-4"
                 >
-                  <div className="relative mx-auto w-[84px] h-[84px] rounded-2xl bg-brand-panel border border-brand-line flex items-center justify-center shadow-[0_12px_32px_-12px_rgba(0,0,0,0.7)]">
+                  <div className="relative mx-auto w-[84px] h-[84px] rounded-2xl bg-brand-panel border border-brand-line flex items-center justify-center shadow-[0_12px_32px_-12px_rgba(0,0,0,0.25)] dark:shadow-[0_12px_32px_-12px_rgba(0,0,0,0.7)]">
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-emerald/15 to-brand-gold/10 opacity-70" />
                     <Icon size={30} className="relative text-brand-gold" />
-                    <span className="absolute -top-3 -right-3 font-mono text-xs px-2 py-1 rounded-full bg-brand-ink border border-brand-gold/40 text-brand-gold">
+                    <span className="absolute -top-3 -right-3 font-mono text-xs px-2 py-1 rounded-full bg-brand-panel border border-brand-gold/40 text-brand-gold">
                       0{i + 1}
                     </span>
                   </div>

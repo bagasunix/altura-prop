@@ -56,7 +56,7 @@ function Card({ img, index, onOpen }) {
         onLoad={() => setLoaded(true)}
         className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${loaded ? "opacity-100" : "opacity-0"}`}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 p-5">
         <div className="text-[11px] uppercase tracking-[0.2em] text-brand-gold">{img.type}</div>
         <div className="font-display text-lg md:text-xl text-white mt-1">{img.area}</div>
@@ -68,7 +68,7 @@ function Card({ img, index, onOpen }) {
 export default function Gallery() {
   const [open, setOpen] = useState(null);
   return (
-    <section className="relative section-pad bg-[#0C0C0C] border-y border-brand-line" data-testid="gallery">
+    <section className="relative section-pad bg-brand-inkSubtle border-y border-brand-line" data-testid="gallery">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

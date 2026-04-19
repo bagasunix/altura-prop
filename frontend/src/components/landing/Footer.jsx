@@ -21,7 +21,7 @@ const LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-brand-line bg-[#080808] pt-16 pb-10" data-testid="footer">
+    <footer className="relative border-t border-brand-line bg-brand-inkStrong pt-16 pb-10" data-testid="footer">
       <div className="mx-auto max-w-7xl px-5 md:px-8 grid md:grid-cols-[1.2fr_1fr_1fr] gap-10">
         <div>
           <Logo />
@@ -66,7 +66,20 @@ export default function Footer() {
 
       <div className="mt-14 border-t border-brand-line pt-6 mx-auto max-w-7xl px-5 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-xs text-brand-mute">
         <div>© 2026 Altura Property · Dibuat dengan ❤️ di Indonesia</div>
-        <div className="font-mono tracking-wider">ver. 1.0 · PWA ready</div>
+        <div className="flex items-center gap-3 font-mono tracking-wider">
+          <span>ver. 1.0 · PWA ready</span>
+          <span className="hidden md:inline text-brand-mute/50">·</span>
+          <a
+            href="#"
+            data-testid="powered-by-gosnix"
+            className="inline-flex items-center gap-1.5 group hover:text-brand-gold transition"
+          >
+            Powered by
+            <span className="font-display not-italic text-brand-gold font-semibold tracking-normal text-sm group-hover:brightness-125">
+              Gosnix
+            </span>
+          </a>
+        </div>
       </div>
     </footer>
   );

@@ -2,7 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============== LIGHT (default) ============== */
 :root {
+  /* shadcn */
+  --background: 42 33% 97%;
+  --foreground: 0 0% 9%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 9%;
+  --primary: 160 70% 32%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 42 20% 95%;
+  --secondary-foreground: 0 0% 9%;
+  --muted: 42 20% 95%;
+  --muted-foreground: 220 5% 40%;
+  --accent: 42 20% 95%;
+  --accent-foreground: 0 0% 9%;
+  --destructive: 0 72% 45%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 160 70% 32%;
+  --radius: 0.75rem;
+
+  /* brand */
+  --brand-ink: 42 33% 97%;          /* #FAFAF7 warm off-white */
+  --brand-inkSubtle: 42 22% 95%;
+  --brand-inkStrong: 42 28% 93%;
+  --brand-panel: 0 0% 100%;
+  --brand-panel2: 42 20% 96%;
+  --brand-text: 0 0% 9%;
+  --brand-mute: 220 5% 40%;
+  --brand-emerald: 160 70% 32%;
+  --brand-teal: 173 70% 28%;
+  --brand-gold: 34 60% 38%;
+
+  --brand-line-rgb: 10 10 10;
+  --brand-line-alpha: 0.10;
+
+  --noise-opacity: 0.25;
+  --input-bg: 0 0% 100%;
+  --input-bg-focus: 42 20% 97%;
+  --input-placeholder: 220 5% 55%;
+  --skel-a: #efece6;
+  --skel-b: #e4e1d9;
+}
+
+/* ============== DARK ============== */
+.dark {
   --background: 0 0% 4%;
   --foreground: 0 0% 93%;
   --card: 0 0% 7%;
@@ -22,24 +70,41 @@
   --border: 0 0% 14%;
   --input: 0 0% 14%;
   --ring: 160 84% 39%;
-  --radius: 0.75rem;
+
+  --brand-ink: 0 0% 4%;
+  --brand-inkSubtle: 0 0% 5%;
+  --brand-inkStrong: 0 0% 3%;
+  --brand-panel: 0 0% 7%;
+  --brand-panel2: 0 0% 9%;
+  --brand-text: 0 0% 93%;
+  --brand-mute: 220 3% 63%;
+  --brand-emerald: 160 84% 39%;
+  --brand-teal: 173 84% 32%;
+  --brand-gold: 39 86% 64%;
+
+  --brand-line-rgb: 255 255 255;
+  --brand-line-alpha: 0.08;
+
+  --noise-opacity: 0.6;
+  --input-bg: 0 0% 7%;
+  --input-bg-focus: 0 0% 8%;
+  --input-placeholder: 220 3% 45%;
+  --skel-a: #141414;
+  --skel-b: #1c1c1c;
 }
 
 html, body, #root {
-  background: #0A0A0A;
-  color: #EDEDED;
+  background: hsl(var(--brand-ink));
+  color: hsl(var(--brand-text));
   font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  transition: background-color 400ms ease, color 400ms ease;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-}
+body { margin: 0; min-height: 100vh; }
 
-/* Noise / grain overlay */
 .bg-noise::before {
   content: "";
   position: absolute;
@@ -47,22 +112,19 @@ body {
   pointer-events: none;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   mix-blend-mode: overlay;
-  opacity: 0.6;
+  opacity: var(--noise-opacity);
   z-index: 0;
 }
 
-/* Selection */
-::selection { background: #F5C453; color: #0A0A0A; }
+::selection { background: hsl(var(--brand-gold)); color: hsl(var(--brand-ink)); }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: #0A0A0A; }
-::-webkit-scrollbar-thumb { background: #1f1f1f; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #2b2b2b; }
+::-webkit-scrollbar-track { background: hsl(var(--brand-ink)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--brand-panel2)); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--brand-mute) / 0.5); }
 
-/* Shimmer skeleton */
 .skel {
-  background: linear-gradient(90deg, #141414 0%, #1c1c1c 50%, #141414 100%);
+  background: linear-gradient(90deg, var(--skel-a) 0%, var(--skel-b) 50%, var(--skel-a) 100%);
   background-size: 200% 100%;
   animation: shimmerBG 1.6s linear infinite;
 }
@@ -71,9 +133,8 @@ body {
   100% { background-position: 200% 0; }
 }
 
-/* Gold shine text */
 .gold-shine {
-  background: linear-gradient(90deg, #F5C453 0%, #FFF1C4 25%, #F5C453 50%, #EED9A5 75%, #F5C453 100%);
+  background: linear-gradient(90deg, hsl(var(--brand-gold)) 0%, hsl(var(--brand-gold) / 0.7) 25%, hsl(var(--brand-gold)) 50%, hsl(var(--brand-gold) / 0.85) 75%, hsl(var(--brand-gold)) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -84,37 +145,33 @@ body {
   to { background-position: 200% center; }
 }
 
-/* Input focus rings */
 .altura-input {
-  background: #111;
-  border: 1px solid rgba(255,255,255,0.08);
-  color: #EDEDED;
-  font-size: 16px; /* prevent iOS auto-zoom */
+  background: hsl(var(--input-bg));
+  border: 1px solid rgb(var(--brand-line-rgb) / var(--brand-line-alpha));
+  color: hsl(var(--brand-text));
+  font-size: 16px;
   transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 .altura-input:focus {
   outline: none;
-  border-color: #10B981;
-  box-shadow: 0 0 0 3px rgba(16,185,129,0.18);
-  background: #131313;
+  border-color: hsl(var(--brand-emerald));
+  box-shadow: 0 0 0 3px hsl(var(--brand-emerald) / 0.18);
+  background: hsl(var(--input-bg-focus));
 }
-.altura-input::placeholder { color: #6b6f76; }
+.altura-input::placeholder { color: hsl(var(--input-placeholder)); }
 
-/* Section padding helper */
 .section-pad { padding-top: 96px; padding-bottom: 96px; }
 @media (max-width: 768px) { .section-pad { padding-top: 64px; padding-bottom: 64px; } }
 
-/* Spinner */
 .spinner {
   width: 18px; height: 18px;
-  border: 2px solid rgba(10,10,10,0.25);
-  border-top-color: #0A0A0A;
+  border: 2px solid hsl(var(--brand-ink) / 0.25);
+  border-top-color: hsl(var(--brand-ink));
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* Safe area for sticky CTA */
 .safe-bottom { padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
 
 @layer base {

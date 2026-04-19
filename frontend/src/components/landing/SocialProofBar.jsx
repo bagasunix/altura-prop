@@ -39,7 +39,7 @@ const Stat = ({ value, suffix, label, testId, decimals = 0 }) => {
 
 export default function SocialProofBar() {
   return (
-    <section className="relative py-16 md:py-20 border-y border-brand-line bg-[#0C0C0C]" data-testid="social-proof">
+    <section className="relative py-16 md:py-20 border-y border-brand-line bg-brand-inkSubtle" data-testid="social-proof">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <motion.p
           initial={{ opacity: 0, y: 12 }}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "@/components/landing/ThemeToggle";
 
 const LINKS = [
   { id: "fitur", label: "Fitur" },
@@ -62,7 +63,7 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "backdrop-blur-xl bg-[#0A0A0A]/80 border-b border-brand-line"
+          ? "backdrop-blur-xl bg-brand-ink/80 border-b border-brand-line"
           : "bg-transparent"
       }`}
     >
@@ -97,24 +98,28 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <button
             onClick={() => scrollTo("daftar")}
             data-testid="navbar-cta"
-            className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full bg-brand-emerald text-brand-ink font-semibold text-sm hover:brightness-110 transition"
+            className="inline-flex items-center gap-2 h-[44px] px-5 rounded-full bg-brand-emerald text-white font-semibold text-sm hover:brightness-110 transition"
           >
             Coba Gratis 14 Hari
           </button>
         </div>
 
-        <button
-          className="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg text-brand-text"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-          data-testid="mobile-menu-toggle"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="inline-flex items-center justify-center w-11 h-11 rounded-lg text-brand-text"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+            data-testid="mobile-menu-toggle"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -124,7 +129,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.22 }}
-            className="md:hidden border-t border-brand-line bg-[#0A0A0A]/95 backdrop-blur-xl"
+            className="md:hidden border-t border-brand-line bg-brand-ink/95 backdrop-blur-xl"
             data-testid="mobile-menu"
           >
             <div className="px-5 py-4 flex flex-col gap-1">
@@ -133,7 +138,7 @@ export default function Navbar() {
                   key={l.id}
                   onClick={() => scrollTo(l.id)}
                   data-testid={`mobile-nav-link-${l.id}`}
-                  className="text-left px-3 py-3 rounded-lg text-brand-text/90 hover:bg-white/5 min-h-[44px]"
+                  className="text-left px-3 py-3 rounded-lg text-brand-text/90 hover:bg-brand-panel2/60 min-h-[44px]"
                 >
                   {l.label}
                 </button>
@@ -141,7 +146,7 @@ export default function Navbar() {
               <button
                 onClick={() => scrollTo("daftar")}
                 data-testid="mobile-nav-cta"
-                className="mt-2 h-[48px] rounded-full bg-brand-emerald text-brand-ink font-semibold"
+                className="mt-2 h-[48px] rounded-full bg-brand-emerald text-white font-semibold"
               >
                 Coba Gratis 14 Hari
               </button>

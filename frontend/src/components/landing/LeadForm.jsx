@@ -201,7 +201,7 @@ export default function LeadForm() {
                     href="https://wa.me/6281234567890"
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 h-[48px] px-6 rounded-full bg-brand-emerald text-brand-ink font-semibold"
+                    className="mt-6 inline-flex items-center gap-2 h-[48px] px-6 rounded-full bg-brand-emerald text-white font-semibold"
                   >
                     Buka WhatsApp manual <ArrowRight size={16} />
                   </a>
@@ -233,7 +233,7 @@ export default function LeadForm() {
                   </div>
 
                   {/* Progress bar */}
-                  <div className="h-[4px] w-full rounded-full bg-white/5 overflow-hidden" data-testid="form-progress">
+                  <div className="h-[4px] w-full rounded-full bg-brand-panel2 overflow-hidden" data-testid="form-progress">
                     <motion.div
                       className="h-full bg-gradient-to-r from-brand-emerald via-brand-teal to-brand-gold"
                       animate={{ width: `${progress}%` }}
@@ -367,7 +367,7 @@ export default function LeadForm() {
                             })}
                           </div>
                         </Field>
-                        <div className="p-4 rounded-xl border border-brand-line bg-white/[0.02] text-xs text-brand-mute">
+                        <div className="p-4 rounded-xl border border-brand-line bg-brand-panel2/60 text-xs text-brand-mute">
                           Dengan mendaftar, Anda menyetujui syarat layanan & kebijakan privasi Altura.
                           Kami tidak pernah membagikan data Anda ke pihak ketiga.
                         </div>
@@ -393,7 +393,7 @@ export default function LeadForm() {
                         type="button"
                         onClick={goNext}
                         data-testid="form-next"
-                        className="inline-flex items-center gap-2 h-[48px] px-6 rounded-full bg-brand-emerald text-brand-ink font-semibold"
+                        className="inline-flex items-center gap-2 h-[48px] px-6 rounded-full bg-brand-emerald text-white font-semibold"
                       >
                         Lanjut <ArrowRight size={16} />
                       </button>
@@ -402,7 +402,7 @@ export default function LeadForm() {
                         type="submit"
                         disabled={loading}
                         data-testid="form-submit"
-                        className="inline-flex items-center gap-2 h-[48px] px-6 rounded-full bg-brand-gold text-brand-ink font-semibold disabled:opacity-70 disabled:cursor-not-allowed"
+                        className="inline-flex items-center gap-2 h-[48px] px-6 rounded-full bg-brand-gold text-white dark:text-brand-ink font-semibold disabled:opacity-70 disabled:cursor-not-allowed"
                       >
                         {loading ? (
                           <>

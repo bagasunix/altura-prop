@@ -56,7 +56,7 @@ export default function PainPoints() {
                 className="relative rounded-2xl border border-brand-line bg-brand-panel p-7 overflow-hidden group"
               >
                 <div className="absolute -top-20 -right-20 w-52 h-52 bg-brand-emerald/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="w-11 h-11 rounded-xl border border-brand-line bg-white/[0.03] flex items-center justify-center mb-5">
+                <div className="w-11 h-11 rounded-xl border border-brand-line bg-brand-panel2/70 flex items-center justify-center mb-5">
                   <Icon size={20} className="text-brand-gold" />
                 </div>
                 <h3 className="font-display text-xl text-brand-text mb-3">{p.title}</h3>
