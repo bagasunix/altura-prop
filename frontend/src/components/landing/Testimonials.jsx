@@ -4,22 +4,28 @@ import { Quote, Star } from "lucide-react";
 
 const TESTIS = [
   {
-    seed: "budi",
+    seed: "Budi",
     name: "Budi Santoso",
-    role: "Principal Agency Jakarta · 12 agen",
-    quote: "Dulu 60% lead tidak terfollow-up. Sekarang semua terjawab dalam detik, bahkan saat weekend.",
+    role: "Principal Altura Property Jakarta · 14 agen",
+    quote:
+      "Sebelumnya banyak lead masuk tapi telat direspon. Setelah pakai sistem ini, hampir semua lead langsung ke-handle. Tim jadi lebih fokus closing dibanding balas chat.",
+    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Budi",
   },
   {
-    seed: "maya",
-    name: "Maya Putri",
-    role: "Century 21 Partner Surabaya · 8 agen",
-    quote: "Agen saya fokus ke survei, kualifikasi diurus AI sepenuhnya. Produktivitas naik dua kali lipat.",
+    seed: "Rina",
+    name: "Rina Wijaya",
+    role: "Marketing Manager Altura Property Bandung · 9 agen",
+    quote:
+      "Yang paling kerasa itu respons jadi cepat banget, bahkan di luar jam kerja. Banyak calon buyer yang akhirnya lanjut karena responnya nggak telat.",
+    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Rina",
   },
   {
-    seed: "arif",
-    name: "Arif Rahman",
-    role: "ERA Realty Bali · 20 agen",
-    quote: "ROI-nya jelas. 2 bulan sudah balik modal dari 1 deal yang sebelumnya sudah hilang.",
+    seed: "Andi",
+    name: "Andi Pratama",
+    role: "Senior Agent Altura Property Tangerang · 7 agen",
+    quote:
+      "Biasanya follow up sering miss, sekarang sudah otomatis dan rapi. Saya pribadi closing lebih banyak karena nggak ada lead yang 'hilang' lagi.",
+    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Andi",
   },
 ];
 
@@ -63,7 +69,7 @@ export default function Testimonials() {
               </div>
               <figcaption className="mt-5 flex items-center gap-3 pt-5 border-t border-brand-line">
                 <img
-                  src={`https://api.dicebear.com/7.x/notionists/svg?seed=${t.seed}&backgroundColor=0d9488,10b981,f5c453&backgroundType=gradientLinear`}
+                  src={t.avatar}
                   alt={t.name}
                   loading="lazy"
                   className="w-11 h-11 rounded-full border border-brand-line bg-brand-panel2"
