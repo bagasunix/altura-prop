@@ -8,7 +8,7 @@ import logging
 import httpx
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict, field_validator
-from typing import List, Optional
+from typing import List, Optional, Literal
 import uuid
 from datetime import datetime, timezone
 
@@ -19,6 +19,9 @@ load_dotenv(ROOT_DIR / '.env')
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 app = FastAPI(title="Altura Property API")
 api_router = APIRouter(prefix="/api")
@@ -40,9 +43,9 @@ class LeadIn(BaseModel):
     name: str = Field(min_length=2, max_length=120)
     phone: str
     city: str = Field(min_length=2, max_length=80)
-    property_type: str  # beli | sewa | investasi
+    property_type: Literal["beli", "sewa", "investasi"]
     budget: str
-    source: str  # Instagram | Google | Referral | Lainnya
+    source: Literal["Instagram", "Google", "Referral", "Lainnya"]
     plan: Optional[str] = None
     utm_source: Optional[str] = None
     utm_campaign: Optional[str] = None
@@ -165,10 +168,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
-
 
 @app.on_event("shutdown")
 async def shutdown_db_client():

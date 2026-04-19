@@ -52,6 +52,7 @@ export default function FAQ() {
                   {isOpen && (
                     <motion.div
                       key="content"
+                      data-testid={`faq-answer-${i}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

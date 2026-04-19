@@ -126,7 +126,10 @@ export default function Pricing() {
                 }`}
               >
                 {t.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold text-brand-ink text-[11px] font-semibold tracking-wide uppercase">
+                  <div
+                    data-testid={isFeatured ? "pricing-popular-badge" : `pricing-badge-${t.id}`}
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold text-brand-ink text-[11px] font-semibold tracking-wide uppercase"
+                  >
                     <Sparkles size={12} /> {t.badge}
                   </div>
                 )}
@@ -140,6 +143,7 @@ export default function Pricing() {
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
+                    data-testid={`pricing-price-${t.id}`}
                     className="font-mono text-3xl md:text-4xl text-brand-text"
                   >
                     {formatRp(price)}
